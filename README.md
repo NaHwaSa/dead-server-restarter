@@ -32,17 +32,17 @@ timeout /t 2
 
 5. DELAY와 PERIOD 설정. [delay]ms가 지난 후 [period]ms 간격으로 체크함.
 
-</hr>
+***
 [빌드]
 ```
 ./gradlew build jar
 ```
-</hr>
+***
 [실행]
 ```
 java -jar [파일명].jar
 ```
-</hr>
+***
 [주의점]
 1. jdk 11 이상 필요.
 2. 중간에 키입력을 통한 비밀번호 입력이 필요한 bat 혹은 sh 파일은 실행이 당연히 안됨.
