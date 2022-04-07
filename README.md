@@ -48,6 +48,7 @@ pm2 serve build 3000 --spa
 
 ***
 **[빌드]**
+IntelliJ의 경우 우측 Gradle 버튼 -> Tasks -> build -> jar
 ```
 ./gradlew build jar
 ```
