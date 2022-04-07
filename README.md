@@ -22,6 +22,14 @@ timeout /t 2
 call %START%
 timeout /t 2
 ```
+e.g. 윈도우에서 윈도우 서비스에 등록된 서버의 경우
+```
+net stop [Service name]
+timeout /t 2
+net start [Service name]
+timeout /t 2
+```
+
 5. DELAY와 PERIOD 설정. [delay]ms가 지난 후 [period]ms 간격으로 체크함.
 
 
@@ -34,3 +42,10 @@ timeout /t 2
 ```
 java -jar [파일명].jar
 ```
+
+[주의점]
+1. jdk 11 이상 필요.
+2. 중간에 키입력을 통한 비밀번호 입력이 필요한 bat 혹은 sh 파일은 실행이 당연히 안됨.
+2.1 윈도우에서 실행 시 java -jar... 을 실행할 cmd 혹은 powershell은 관리자권한으로 작동시킬 것. (중간에 비밀번호를 물어보면 안되기 때문.)
+2.2 관리자 권한으로 실행해도 비밀번호를 물어본다면 runas 명령어를 활용해서 bat 파일을 작성할 것.
+2.3 마찬가지로 리눅스에서 중간에 비밀번호가 필요한 경우 expect 등을 사용해서 sh 파일을 작성할 것.
