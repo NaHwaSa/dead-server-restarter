@@ -5,7 +5,17 @@
 **[설정]**
 1. Config 클래스에 LIVE_CHECK_URL에 해당 서버 get 방식으로 200 ok 체크 할 수 있는 URL 입력 (클라우드 로드밸런서 상태체크 URL 등)
 2. FILE_FOR_EACH_RESTART_PROCESS_NUM에 여러개의 기본 세팅 저장(윈도우-bat, 리눅스-sh 등)
-3. RESTART_PROCESS_NUM에 '2'에서 설정한것 중 실제 동작을 뭘로할지 배열 인덱스 기입
+3. RESTART_PROCESS_NUM에 '2'에서 설정한것 중 실제 동작을 뭘로할지 배열 인덱스 기입 (FILE_FOR_EACH_RESTART_PROCESS_NUM에 3개가 설정되어 있다면 순서대로 인덱스는 0,1,2 임)
+- e.g. localhost:8080/chk 를 1분마다 주기적으로 확인하며, 서버가 죽었을 시 jar 파일과 동일한 폴더에 존재하는 'restart_batch.bat'을 실행하는 Config 설정
+```
+    public static final String LIVE_CHECK_URL   = "http://localhost:8080/chk";
+    public static final int RESTART_PROCESS_NUM = 0;
+    public static final String[] FILE_FOR_EACH_RESTART_PROCESS_NUM = {
+            "restart_batch.bat"
+    };
+    public static final int DELAY   = 5000;
+    public static final int PERIOD  = 60000;
+```
 4. '2'에 설정해둔 파일 내에 해당 서버가 죽었을 시 재실행할 수 있는 명령어 작성.
 - e.g. 윈도우에서 톰캣을 통해 실행된 서버의 경우 (.bat)
 ```
