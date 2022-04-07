@@ -7,7 +7,7 @@
 2. FILE_FOR_EACH_RESTART_PROCESS_NUM에 여러개의 기본 세팅 저장(윈도우-bat, 리눅스-sh 등)
 3. RESTART_PROCESS_NUM에 '2'에서 설정한것 중 실제 동작을 뭘로할지 배열 인덱스 기입
 4. '2'에 설정해둔 파일 내에 해당 서버가 죽었을 시 재실행할 수 있는 명령어 작성.
-e.g. 윈도우에서 톰캣을 통해 실행된 서버의 경우
+- e.g. 윈도우에서 톰캣을 통해 실행된 서버의 경우
 ```
 @echo off
 
@@ -22,7 +22,7 @@ timeout /t 2
 call %START%
 timeout /t 2
 ```
-e.g. 윈도우에서 윈도우 서비스에 등록된 서버의 경우
+- e.g. 윈도우에서 윈도우 서비스에 등록된 서버의 경우
 ```
 net stop [Service name]
 timeout /t 2
